@@ -30,7 +30,6 @@ export class News extends Component {
     this.setState({loading:true});
     let data= await fetch(url);
     let parsedData = await data.json();
-    console.log(parsedData);
     this.setState({
       articles:parsedData.articles, 
       totalResults:parsedData.totalResults,
@@ -67,7 +66,7 @@ export class News extends Component {
   render() {
     return (
       <div className="container my-3 ">
-        <h1 className='text-center' style={{margin:'40px 0px;'}} >NewsMonkey - Top Headlines</h1>
+        <h1 className='text-center' style={{margin:'40px 0px'}} >NewsMonkey - Top Headlines</h1>
         {this.state.loading && <Spinner/>}
         <div className="row">  
         {!this.state.loading && this.state.articles.map ((element) => {
